@@ -1,8 +1,11 @@
 const express = require("express");
-const { PORT } = require("./config");
+const apiRoutes = require("./routes");
+const { ServerConfig } = require("./config");
 
 const app = express();
 
-app.listen(PORT, () => {
-  console.log(`server running at port ${PORT}`);
+app.use("/api", apiRoutes);
+
+app.listen(ServerConfig.PORT, () => {
+  console.log(`server running at port ${ServerConfig.PORT}`);
 });
